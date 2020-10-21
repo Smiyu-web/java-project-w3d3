@@ -6,8 +6,10 @@ public class Book {
 	private String firstName;
 	private String lastName;
 	private int year;
+	private double price;
 	
-	public Book(String bookTitle, String firstNameAuthor, String lastNameAuthor, int publishedYear) {
+	public Book(String bookTitle, String firstNameAuthor, String lastNameAuthor, 
+			int publishedYear, double price) {
 		if (bookTitle == "" || bookTitle == null) {
 			title = "Unknow";
 		} else {
@@ -26,10 +28,16 @@ public class Book {
 			lastName = lastNameAuthor;
 		}
 
-		if (year < 1900) {
-			year = 1900;
+		if (publishedYear >= 1900) {
+			year = publishedYear;
 		} else {
-		    year = publishedYear;
+		    year = 1900;
+		}
+		
+		if (price <= 0) {
+			this.price = 0;
+		} else {
+			this.price = price;
 		}
 	}
 	
@@ -48,6 +56,14 @@ public class Book {
 	}
 	public int getYear(){
 		return year;
+	}
+	
+//	public double getPrice() {
+//		return price;
+//	}
+	
+	public double getPrice() {
+		return price * 1.12;
 	}
 	
 	// set up
@@ -76,10 +92,18 @@ public class Book {
 	}
 	
 	public void setYear(int publishedYear) {
-		if (year < 1900) {
-			year = 1900;
+		if (publishedYear >= 1900) {
+			year = publishedYear;
 		} else {
-		    year = publishedYear;
+		    year = 1900;
+		}
+	}
+	
+	public void setPrice(double price) {
+		if (price <= 0) {
+			this.price = 0;
+		} else {
+			this.price = price;
 		}
 	}
 

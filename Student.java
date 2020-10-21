@@ -5,29 +5,35 @@ public class Student {
 	// instance variables
 	private String firstName;
 	private String lastName;
-	
+	private double midScore;
+	private double finalScore;
+
 	
 	// default constructor
 
-	public Student(String fName, String lName) {
+	public Student(String firstName, String lastName) {
 //		if (fName == "" || lName == "") {
-//			System.out.println("Invalid first name");
+//			System.out.println("Invalid value");
 //		} else {
 //			firstName = fName;
 //			lastName = lName;
 //		} 
 		
-		if (fName == "") {
-			firstName = "Unknown";
+		if (firstName == "") {
+			this.firstName = "Unknown";
 	    } else {
-	    	firstName = fName;
+	    	this.firstName = firstName;
 	    } 
 		
-		if (lName == "") {
-			lastName = "Unknown";
+		if (lastName == "") {
+			this.lastName = "Unknown";
         } else {
-	        lastName = lName;
+	        this.lastName = lastName;
         } 	
+		
+		this.midScore = 0;
+		this.finalScore = 0;
+		
 	}
 	
 	// @return getter
@@ -40,22 +46,47 @@ public class Student {
 		return lastName;
 	}
 	
+	public double getMidScore() {
+		return midScore;
+	}
+	
+	public double getFinalScore() {
+		return finalScore;
+	}
+	
+	
 	// set up setter
 	
-	public void setFirstName(String fName) {
-		if (fName == "") {
-			firstName = "Unknown";
+	public void setFirstName(String firstName) {
+		if (firstName == "") {
+			this.firstName = "Unknown";
 	    } else {
-	    	firstName = fName;
+	    	this.firstName = firstName;
 	    } 
 	}
 	
-	public void setLastName(String lName) {
-		if (lName == "") {
-			lastName = "Unknown";
+	public void setLastName(String lastName) {
+		if (lastName == "") {
+			this.lastName = "Unknown";
         } else {
-	        lastName = lName;
+	        this.lastName = lastName;
         } 
 	}
+	
+	public void setMidScore(double midScore) {
+		this.midScore = midScore;
+	}
+	
+	public void setfinalScore(double finalScore) {
+		this.finalScore = finalScore;
+	}
+	
+	// calculate total score and return total score
+	
+	public double getTotalScore () {
+		return ((midScore * 30) + (finalScore * 70)) / 100;
+	}
+	
+
 	
 }
